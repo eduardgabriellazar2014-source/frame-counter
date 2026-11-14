@@ -9,8 +9,8 @@ class $modify(FrameCounterLayer, PlayLayer) {
 		int lastFrame = -1;
 	};
 
-	bool init(GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
-		if (!PlayLayer::init(level, useReplay, dontCreateObjects)) return false;
+	bool init(GJGameLevel* level, bool dontCreateObjects) {
+		if (!PlayLayer::init(level, dontCreateObjects)) return false;
 
 		auto label = CCLabelBMFont::create("Frame: 0", "bigFont.fnt");
 		label->setID("frame-counter"_spr);
