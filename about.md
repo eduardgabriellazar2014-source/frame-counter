@@ -1,11 +1,9 @@
-# Frame Counter
+# Click Gap Counter
 
-Displays the current **frame** of the level in the corner of your screen while you play.
+Shows how fast you click while you play a level.
 
-## Features
-- Live frame counter in any of the four screen corners
-- Works correctly with practice mode checkpoints
-- Adjustable scale, opacity and frame rate basis (240 physics steps by default, or 60 for visual frames)
-- Optional "Frame:" text prefix
+- Each row counts your clicks in a speed range, for the current attempt
+- Below the list, the time since your last click (MS) and the same thing as a rate (Hz)
+- Settings for size and opacity
 
-All options are in the mod's settings menu.
+This mod measures the time between your own clicks. It does not measure click windows, and it is not affiliated with any other counter mod.
