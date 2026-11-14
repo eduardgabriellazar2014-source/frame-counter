@@ -29,9 +29,8 @@ class $modify(FrameCounterLayer, PlayLayer) {
 		if (!label) return;
 
 		auto mod = Mod::get();
-		bool enabled = mod->getSettingValue<bool>("enabled");
-		label->setVisible(enabled);
-		if (!enabled) return;
+			bool init(GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
+		if (!PlayLayer::init(level, useReplay, dontCreateObjects)) return false;
 
 		auto corner = mod->getSettingValue<std::string>("corner");
 		float scale = static_cast<float>(mod->getSettingValue<double>("scale"));
