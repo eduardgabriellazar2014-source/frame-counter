@@ -6,39 +6,32 @@
 		"mac": "2.2081",
 		"ios": "2.2081"
 	},
-	"version": "v1.0.0",
+	"version": "v1.2.0",
 	"id": "cinyfree.frame-counter",
-	"name": "Frame Counter",
+	"name": "Click Gap Counter",
 	"developer": "cinyfree",
-	"description": "Shows the current frame of the level while you play.",
+	"description": "Groups your clicks by how fast you click and shows the time between your last two clicks.",
 	"tags": ["utility", "interface", "gameplay"],
 	"settings": {
 		"enabled": {
 			"type": "bool",
-			"name": "Show Frame Counter",
-			"description": "Toggle the frame counter on or off.",
+			"name": "Show Click Gap Counter",
+			"description": "Toggle the counter on or off.",
 			"default": true
 		},
-		"show-prefix": {
+		"show-readout": {
 			"type": "bool",
-			"name": "Show \"Frame:\" Prefix",
-			"description": "Display the text <cy>Frame:</c> before the number.",
+			"name": "Show MS and Hz",
+			"description": "Show the time since your last click and the same thing as a rate.",
 			"default": true
-		},
-		"corner": {
-			"type": "string",
-			"name": "Screen Corner",
-			"description": "Which corner of the screen the counter appears in.",
-			"default": "Top Left",
-			"one-of": ["Top Left", "Top Right", "Bottom Left", "Bottom Right"]
 		},
 		"scale": {
 			"type": "float",
 			"name": "Scale",
 			"description": "Size of the counter text.",
-			"default": 0.5,
+			"default": 0.35,
 			"min": 0.1,
-			"max": 2.0,
+			"max": 1.0,
 			"control": {
 				"slider": true,
 				"slider-step": 0.05
@@ -48,20 +41,12 @@
 			"type": "int",
 			"name": "Opacity",
 			"description": "Opacity of the counter text (0 = invisible, 255 = solid).",
-			"default": 180,
+			"default": 200,
 			"min": 0,
 			"max": 255,
 			"control": {
 				"slider": true
 			}
-		},
-		"fps": {
-			"type": "int",
-			"name": "Frames Per Second",
-			"description": "Frame rate used to convert level time into frames. <cy>240</c> matches GD's default physics steps, <cy>60</c> matches normal visual frames.",
-			"default": 240,
-			"min": 1,
-			"max": 1000
 		}
 	}
 }
