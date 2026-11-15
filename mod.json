@@ -6,24 +6,40 @@
 		"mac": "2.2081",
 		"ios": "2.2081"
 	},
-	"version": "v1.3.0",
+	"version": "v2.0.0",
 	"id": "cinyfree.frame-counter",
-	"name": "Frame Gap Recorder",
+	"name": "Click Window Scanner",
 	"developer": "cinyfree",
-	"description": "Records the frame of every click and shows how many gaps between clicks are 1, 2, 3, 4 and longer frames.",
+	"description": "After a bot completes a level, replays it and finds how many frames of leeway each click has.",
 	"tags": ["utility", "interface", "gameplay"],
 	"settings": {
 		"enabled": {
 			"type": "bool",
-			"name": "Show Frame Gap Recorder",
-			"description": "Toggle the recorder on or off.",
+			"name": "Show Window Counter",
+			"description": "Toggle the counter on or off.",
 			"default": true
 		},
-		"show-info": {
+		"show-popup": {
 			"type": "bool",
-			"name": "Show Info Lines",
-			"description": "Show the last gap, standard deviation, clicks per second and total clicks.",
+			"name": "Show Click Popups",
+			"description": "Show the window size next to the player on every click after a scan.",
 			"default": true
+		},
+		"range": {
+			"type": "int",
+			"name": "Scan Range (frames)",
+			"description": "How many frames earlier and later each click is tested. Bigger is slower.",
+			"default": 12,
+			"min": 4,
+			"max": 40
+		},
+		"tps": {
+			"type": "int",
+			"name": "Physics Steps Per Second",
+			"description": "Must match the TPS your bot uses. <cy>240</c> is the game default.",
+			"default": 240,
+			"min": 1,
+			"max": 1000
 		},
 		"scale": {
 			"type": "float",
