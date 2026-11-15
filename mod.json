@@ -6,29 +6,29 @@
 		"mac": "2.2081",
 		"ios": "2.2081"
 	},
-	"version": "v1.2.0",
+	"version": "v1.3.0",
 	"id": "cinyfree.frame-counter",
-	"name": "Click Gap Counter",
+	"name": "Frame Gap Recorder",
 	"developer": "cinyfree",
-	"description": "Groups your clicks by how fast you click and shows the time between your last two clicks.",
+	"description": "Records the frame of every click and shows how many gaps between clicks are 1, 2, 3, 4 and longer frames.",
 	"tags": ["utility", "interface", "gameplay"],
 	"settings": {
 		"enabled": {
 			"type": "bool",
-			"name": "Show Click Gap Counter",
-			"description": "Toggle the counter on or off.",
+			"name": "Show Frame Gap Recorder",
+			"description": "Toggle the recorder on or off.",
 			"default": true
 		},
-		"show-readout": {
+		"show-info": {
 			"type": "bool",
-			"name": "Show MS and Hz",
-			"description": "Show the time since your last click and the same thing as a rate.",
+			"name": "Show Info Lines",
+			"description": "Show the last gap, standard deviation, clicks per second and total clicks.",
 			"default": true
 		},
 		"scale": {
 			"type": "float",
 			"name": "Scale",
-			"description": "Size of the counter text.",
+			"description": "Size of the text.",
 			"default": 0.35,
 			"min": 0.1,
 			"max": 1.0,
@@ -40,7 +40,7 @@
 		"opacity": {
 			"type": "int",
 			"name": "Opacity",
-			"description": "Opacity of the counter text (0 = invisible, 255 = solid).",
+			"description": "Opacity of the text (0 = invisible, 255 = solid).",
 			"default": 200,
 			"min": 0,
 			"max": 255,
