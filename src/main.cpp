@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
-#include <Geode/modify/GJBaseGameLayer.hpp>
+#include <Geode/modify/PlayerObject.hpp>
 #include <array>
 #include <cmath>
 
@@ -54,18 +54,18 @@ namespace {
 	}
 }
 
-class $modify(GapGameLayer, GJBaseGameLayer) {
-	void handleButton(bool down, int button, bool isPlayer1) {
-		GJBaseGameLayer::handleButton(down, button, isPlayer1);
+class $modify(GapPlayerObject, PlayerObject) {
+	bool pushButton(PlayerButton button) {
+		bool result = PlayerObject::pushButton(button);
 
 		// Only count jump presses by player 1 inside a real level (not the editor).
-		if (!down || button != 1 || !isPlayer1) return;
+		if (button != PlayerButton::Jump) return result;
 		auto pl = PlayLayer::get();
-		if (!pl || static_cast<GJBaseGameLayer*>(pl) != this) return;
-		if (!Mod::get()->getSettingValue<bool>("enabled")) return;
+		if (!pl || this != pl->m_player1) return result;
+		if (!Mod::get()->getSettingValue<bool>("enabled")) return result;
 
-		long long frame = static_cast<long long>(m_gameState.m_currentProgress);
-		double t = m_gameState.m_levelTime;
+		long long frame = static_cast<long long>(pl->m_gameState.m_currentProgress);
+		double t = pl->m_gameState.m_levelTime;
 
 		g_stats.clicks++;
 		if (g_stats.lastFrame >= 0) {
@@ -83,6 +83,7 @@ class $modify(GapGameLayer, GJBaseGameLayer) {
 		g_stats.lastFrame = frame;
 		g_stats.lastTime = t;
 		g_stats.dirty = true;
+		return result;
 	}
 };
 
